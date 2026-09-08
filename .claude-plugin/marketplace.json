@@ -1,0 +1,22 @@
+{
+  "name": "agent-skills",
+  "owner": {
+    "name": "Thomas DeRoussel",
+    "url": "https://github.com/tderoussel"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Process skills for Claude Code and other agents that read SKILL.md files."
+  },
+  "plugins": [
+    {
+      "name": "agent-skills",
+      "description": "Seven process skills: ship verification, parallel-agent briefs, decision councils, unattended overnight builds, competitive teardowns, Obsidian vault health, and inbox triage.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Thomas DeRoussel"
+      },
+      "source": "."
+    }
+  ]
+}

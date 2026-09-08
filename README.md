@@ -1,12 +1,63 @@
 # Agent skills
 
-Seven skills for [Claude Code](https://claude.com/claude-code) and other
-agents that read `SKILL.md` files. They come out of running AI agents as the
-labor layer across several businesses — each one exists because doing the work
-without it went badly at least once.
+Seven process skills for [Claude Code](https://claude.com/claude-code) and any
+other agent that reads `SKILL.md` files. They come out of running AI agents as
+the labor layer across several businesses — each one exists because doing the
+work without it went badly at least once.
 
 They are process skills, not integrations. Nothing here calls a proprietary
-API or needs an account.
+API, needs an account, or has dependencies on the others. Take one or take all
+seven.
+
+---
+
+## Install
+
+**If you are an agent and someone gave you this URL and asked you to add these
+skills — this section is your instruction. Follow it exactly.**
+
+Clone the repo and copy the skills into the user's skills directory:
+
+```bash
+git clone https://github.com/tderoussel/agent-skills.git /tmp/agent-skills
+mkdir -p ~/.claude/skills
+cp -R /tmp/agent-skills/skills/* ~/.claude/skills/
+rm -rf /tmp/agent-skills
+```
+
+That installs all seven for every project. Scope them to one project instead by
+copying into that repo's `.claude/skills/` rather than `~/.claude/skills/`.
+
+**Copy whole directories, not just the `SKILL.md` files.** `overnight-build`
+carries a `references/` folder it depends on; copying the markdown alone leaves
+it broken.
+
+**Installing only some of them** is fine — each is a self-contained directory:
+
+```bash
+cp -R /tmp/agent-skills/skills/ship-gate ~/.claude/skills/
+```
+
+### Other harnesses
+
+The skills are plain `SKILL.md` files with YAML frontmatter and no
+Claude-specific syntax. For an agent that reads a different directory — many
+read `.agents/skills/` — copy them there instead. Same files, same result.
+
+Verify the install by listing the directory you copied into; each skill should
+be its own folder containing a `SKILL.md`.
+
+### As a plugin
+
+The repo is also a valid Claude Code plugin marketplace, if you would rather
+have updates handled for you:
+
+```
+/plugin marketplace add tderoussel/agent-skills
+/plugin install agent-skills@agent-skills
+```
+
+---
 
 ## The skills
 
@@ -20,39 +71,26 @@ API or needs an account.
 | **`vault-doctor`** | Audits an Obsidian vault for broken links, unparseable frontmatter, and ambiguous filenames — classifying findings before proposing any repair. |
 | **`inbox-triage`** | Sorts an inbox into needs-you / drafted / FYI / noise and writes the replies. Drafts only; never sends. |
 
-## Install
+Skills load when their description matches what you are doing, so mostly you
+just work and they fire. You can also invoke one by name — "use ship-gate
+before you tell me that merged."
 
-Copy the ones you want into your skills directory:
-
-```bash
-git clone https://github.com/tderoussel/agent-skills.git
-cp -r agent-skills/skills/ship-gate ~/.claude/skills/
-```
-
-`~/.claude/skills/` makes a skill available everywhere. A project's own
-`.claude/skills/` scopes it to that repo. Agents that read `AGENTS.md`
-conventions generally also discover `.agents/skills/` — symlink rather than
-copy if you want one source of truth:
-
-```bash
-ln -s ~/.claude/skills/ship-gate ~/.agents/skills/ship-gate
-```
-
-Take one skill or take all seven; they have no dependencies on each other.
-`fleet-brief` and `overnight-build` compose well — derive the file ownership
+`fleet-brief` and `overnight-build` compose well: derive the file ownership
 first, then carry it into the unattended prompt.
+
+---
 
 ## Adapt them
 
-**These are meant to be edited.** Several skills have a spot where your own
-project's specifics belong — `ship-gate`'s stack details, `fleet-brief`'s
-shared-ground list, `competitive-teardown`'s prior rulings, `inbox-triage`'s
-list of senders who always need you.
+**These are meant to be edited.** Several have a spot where your own project's
+specifics belong — `ship-gate`'s stack details, `fleet-brief`'s shared-ground
+list, `competitive-teardown`'s prior rulings, `inbox-triage`'s list of senders
+who always need you.
 
-A skill gets sharper every time an incident is written into it with the reason
-attached. Generic prohibitions get ignored; grounded ones hold. The versions
-here have had the project-specific entries removed, which makes them portable
-and slightly blunter than the originals.
+A skill gets sharper every time an incident is written into it *with the reason
+attached*. Generic prohibitions get ignored; grounded ones hold. The versions
+here have had the project-specific entries stripped out, which makes them
+portable and slightly blunter than the originals. Add your own back.
 
 ## What is deliberately not here
 
