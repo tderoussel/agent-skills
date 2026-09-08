@@ -1,0 +1,20 @@
+{
+  "name": "agent-skills",
+  "description": "Seven process skills for Claude Code: ship verification, parallel-agent briefs, decision councils, unattended overnight builds, competitive teardowns, Obsidian vault health, and inbox triage.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Thomas DeRoussel",
+    "url": "https://github.com/tderoussel"
+  },
+  "homepage": "https://github.com/tderoussel/agent-skills",
+  "repository": "https://github.com/tderoussel/agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "verification",
+    "parallel-agents",
+    "decision-making",
+    "obsidian",
+    "workflows"
+  ]
+}
