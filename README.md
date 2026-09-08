@@ -1,13 +1,13 @@
 # Agent skills
 
-Seven process skills for [Claude Code](https://claude.com/claude-code) and any
-other agent that reads `SKILL.md` files. They come out of running AI agents as
+Nine process skills and four subagents for [Claude Code](https://claude.com/claude-code)
+and any other agent that reads `SKILL.md` files. They come out of running AI agents as
 the labor layer across several businesses — each one exists because doing the
 work without it went badly at least once.
 
 They are process skills, not integrations. Nothing here calls a proprietary
-API, needs an account, or has dependencies on the others. Take one or take all
-seven.
+API, needs an account, or has dependencies on the others. Take one or take
+them all.
 
 ---
 
@@ -25,7 +25,7 @@ cp -R /tmp/agent-skills/skills/* ~/.claude/skills/
 rm -rf /tmp/agent-skills
 ```
 
-That installs all seven for every project. Scope them to one project instead by
+That installs all nine for every project. Scope them to one project instead by
 copying into that repo's `.claude/skills/` rather than `~/.claude/skills/`.
 
 **Copy whole directories, not just the `SKILL.md` files.** `overnight-build`
@@ -70,6 +70,8 @@ have updates handled for you:
 | **`competitive-teardown`** | Turns a competitor into a ranked build-or-ignore verdict, with a mandatory not-worth-copying section. |
 | **`vault-doctor`** | Audits an Obsidian vault for broken links, unparseable frontmatter, and ambiguous filenames — classifying findings before proposing any repair. |
 | **`inbox-triage`** | Sorts an inbox into needs-you / drafted / FYI / noise and writes the replies. Drafts only; never sends. |
+| **`codebase-audit`** | Ranked, evidence-backed audit ending in a verify list that separates what was proven from what was inferred. |
+| **`session-log`** | Writes a durable session record the next session can trust — with the two carry-forward sections everyone drops. |
 
 Skills load when their description matches what you are doing, so mostly you
 just work and they fire. You can also invoke one by name — "use ship-gate
@@ -77,6 +79,32 @@ before you tell me that merged."
 
 `fleet-brief` and `overnight-build` compose well: derive the file ownership
 first, then carry it into the unattended prompt.
+
+---
+
+## The agents
+
+Four subagents that implement the build loop the skills describe: plan, build
+in lanes, review, and read-only recon. They pair with `fleet-brief` — the
+planner derives the lane ownership, the builders stay inside it, the reviewer
+checks that they did.
+
+| Agent | Role |
+|---|---|
+| **`planner`** | Maps files, assigns one owning lane per file, writes the plan. Does not write product code. |
+| **`builder`** | Builds exactly one lane inside a worktree. Never merges its own work. |
+| **`reviewer`** | Reads the diff line by line and returns an explicit verdict. Read-only. |
+| **`researcher`** | Read-only recon. Every finding carries evidence and a verified/assumed marker. |
+
+Install them alongside the skills:
+
+```bash
+mkdir -p ~/.claude/agents
+cp -R /tmp/agent-skills/agents/* ~/.claude/agents/
+```
+
+The core idea they encode: **nothing merges on its author's say-so.** The agent
+that wrote a diff is the worst possible reviewer of it.
 
 ---
 
