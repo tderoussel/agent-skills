@@ -1,0 +1,4 @@
+interface:
+  display_name: "Realtor Website Builder"
+  short_description: "Build and verify a website that captures real inquiries"
+  default_prompt: "Use $realtor-website-builder to build my realtor website with working lead capture and booking, then help connect my GoDaddy domain."

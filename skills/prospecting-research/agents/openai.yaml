@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prospecting Research"
+  short_description: "Build a sourced, prioritized real estate prospect list"
+  default_prompt: "Use $prospecting-research to review my permitted MLS data and build a sourced prospect list with the next useful action."

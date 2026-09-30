@@ -1,0 +1,4 @@
+interface:
+  display_name: "Funnel Building"
+  short_description: "Build and verify a complete visitor-to-outcome journey"
+  default_prompt: "Use $funnel-building to connect my lead magnet, landing page, delivery, and consultation booking into one tested journey."

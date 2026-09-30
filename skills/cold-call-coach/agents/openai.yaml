@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cold Call Coach"
+  short_description: "Study real calls, practice, and improve your approach"
+  default_prompt: "Use $cold-call-coach to study original realtor calls, write an honest script for my market, and role-play difficult conversations."

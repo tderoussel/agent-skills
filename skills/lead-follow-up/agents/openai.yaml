@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lead Follow-Up"
+  short_description: "Turn actual inquiries into useful replies and CRM tasks"
+  default_prompt: "Use $lead-follow-up to review this inquiry and conversation history, draft the next useful reply, and prepare the appropriate CRM task."

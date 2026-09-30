@@ -1,65 +1,83 @@
 # Agent skills
 
-Nine process skills and four subagents for [Claude Code](https://claude.com/claude-code)
-and any other agent that reads `SKILL.md` files. They come out of running AI agents as
-the labor layer across several businesses — each one exists because doing the
-work without it went badly at least once.
+Eighteen skills and four subagents for [Claude Code](https://claude.com/claude-code),
+Codex, and other agents that read `SKILL.md` files. The library includes a nine-skill
+Realtor Starter Pack and nine process skills for research, decisions, development,
+and operations.
 
-They are process skills, not integrations. Nothing here calls a proprietary
-API, needs an account, or has dependencies on the others. Take one or take
-them all.
+Skills provide reusable instructions. They use the tools your assistant actually
+has; installing a skill does not connect an account or grant permission to send
+messages, spend money, publish a site, or change DNS. Each skill can be used on its
+own. Connectors and existing account permissions determine what can be executed.
 
 ---
 
+## Realtor Starter Pack
+
+Give your assistant this repository link and ask:
+
+> Install the Realtor Starter Pack from this repository using the skill location
+> supported by my assistant. Preserve existing skills and install the complete
+> folders. Show me which skills were installed and how to use them.
+
+| Skill | What you get | Try asking |
+|---|---|---|
+| [copywriting](skills/copywriting/SKILL.md) | Original, source-grounded copy in your voice | Write a seller email using my notes and approved examples. |
+| [funnel-building](skills/funnel-building/SKILL.md) | A connected journey from first visit through delivery and follow-up | Build the path from my buyer-guide post to a delivered guide and consultation. |
+| [sphere-activation](skills/sphere-activation/SKILL.md) | Clean contacts, relationship segments, and personal follow-up drafts | Combine my contact exports and prepare a CRM import and reactivation plan. |
+| [prospecting-research](skills/prospecting-research/SKILL.md) | Sourced property research and a usable prospect shortlist | Use my permitted MLS data to research this neighborhood and explain which prospects deserve a closer look. |
+| [cold-call-coach](skills/cold-call-coach/SKILL.md) | Researched call patterns, original scripts, and realistic practice | Study public FSBO calls, help me develop my approach, and role-play with me. |
+| [lead-magnet-builder](skills/lead-magnet-builder/SKILL.md) | A finished guide plus promotion and a request-scoped delivery plan | Create a Listing Prep Package and the social post and video script that introduce it. |
+| [lead-follow-up](skills/lead-follow-up/SKILL.md) | The next useful reply, appointment preparation, and CRM tasks | Read this actual inquiry and its history, then prepare the right next step. |
+| [community-group-builder](skills/community-group-builder/SKILL.md) | Your own local group concept, launch material, and growth plan | Help me create a community Facebook group people in my area will want to join. |
+| [realtor-website-builder](skills/realtor-website-builder/SKILL.md) | A website with verified contact and booking paths | Build my realtor website, then help connect my GoDaddy domain using the signed-in browser. |
+
+The research skills work from the authenticated sessions, connected tools, or
+permitted exports you provide. They keep missing information visible and use
+actual responses and outcomes to improve the work. Public engagement and a
+creator's claimed results are not guarantees of leads.
+
 ## Install
 
-**If you are an agent and someone gave you this URL and asked you to add these
-skills — this section is your instruction. Follow it exactly.**
+For an agent performing a requested installation: follow the user's and project's
+skill-location instructions first. Choose the requested pack or individual skills;
+install the entire library only when requested. Use a fresh checkout, copy whole
+skill directories, and verify every installed folder has its `SKILL.md` and
+referenced resources. Compare an existing destination before changing it; preserve
+local customizations and do not replace a managed symlink with a copied directory.
 
-Clone the repo and copy the skills into the user's skills directory:
-
-```bash
-git clone https://github.com/tderoussel/agent-skills.git /tmp/agent-skills
-mkdir -p ~/.claude/skills
-cp -R /tmp/agent-skills/skills/* ~/.claude/skills/
-rm -rf /tmp/agent-skills
-```
-
-That installs all nine for every project. Scope them to one project instead by
-copying into that repo's `.claude/skills/` rather than `~/.claude/skills/`.
-
-**Copy whole directories, not just the `SKILL.md` files.** `overnight-build`
-carries a `references/` folder it depends on; copying the markdown alone leaves
-it broken.
-
-**Installing only some of them** is fine — each is a self-contained directory:
+Clone the repository into an unused directory:
 
 ```bash
-cp -R /tmp/agent-skills/skills/ship-gate ~/.claude/skills/
+git clone https://github.com/tderoussel/agent-skills.git agent-skills
 ```
 
-### Other harnesses
+The nine Realtor Starter Pack folders are `copywriting`, `funnel-building`,
+`sphere-activation`, `prospecting-research`, `cold-call-coach`,
+`lead-magnet-builder`, `lead-follow-up`, `community-group-builder`, and
+`realtor-website-builder`.
 
-The skills are plain `SKILL.md` files with YAML frontmatter and no
-Claude-specific syntax. For an agent that reads a different directory — many
-read `.agents/skills/` — copy them there instead. Same files, same result.
+Claude Code commonly reads `~/.claude/skills/`; an agent that reads
+`.agents/skills/` can use that location instead. Project-local installation is
+also supported when the harness and project instructions use it. These are
+plain skill folders; choose the location your assistant actually discovers.
 
-Verify the install by listing the directory you copied into; each skill should
-be its own folder containing a `SKILL.md`.
+**Copy whole directories, not just `SKILL.md`.** References, scripts, and UI
+metadata travel with the skill. The complete library contains 18 skill folders.
+Invoking a skill by name can help: “Use cold-call-coach to help me practice.”
 
 ### As a plugin
 
-The repo is also a valid Claude Code plugin marketplace, if you would rather
-have updates handled for you:
+The complete library is also a Claude Code plugin marketplace:
 
-```
+```text
 /plugin marketplace add tderoussel/agent-skills
 /plugin install agent-skills@agent-skills
 ```
 
 ---
 
-## The skills
+## Process skills
 
 | Skill | What it does |
 |---|---|
@@ -96,12 +114,9 @@ checks that they did.
 | **`reviewer`** | Reads the diff line by line and returns an explicit verdict. Read-only. |
 | **`researcher`** | Read-only recon. Every finding carries evidence and a verified/assumed marker. |
 
-Install them alongside the skills:
-
-```bash
-mkdir -p ~/.claude/agents
-cp -R /tmp/agent-skills/agents/* ~/.claude/agents/
-```
+Install the requested agent files from `agent-skills/agents/` into the agent
+location your harness supports. Compare existing files first and preserve local
+customizations. Claude Code commonly uses `~/.claude/agents/`.
 
 The core idea they encode: **nothing merges on its author's say-so.** The agent
 that wrote a diff is the worst possible reviewer of it.

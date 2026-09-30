@@ -1,0 +1,4 @@
+interface:
+  display_name: "Copywriting"
+  short_description: "Write grounded copy with real proof and a clear action"
+  default_prompt: "Use $copywriting to research and write a seller-focused landing page using only verified facts and real proof."
