@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sphere Activation"
+  short_description: "Turn contact exports into a usable relationship plan"
+  default_prompt: "Use $sphere-activation to combine my contact exports, prepare a CRM import, and draft a relationship-specific follow-up plan."

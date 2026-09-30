@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lead Magnet Builder"
+  short_description: "Build useful real estate guides and promotion assets"
+  default_prompt: "Use $lead-magnet-builder to create a useful local buyer or seller resource with social posts and a short video script."

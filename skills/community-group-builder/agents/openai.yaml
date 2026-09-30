@@ -1,0 +1,4 @@
+interface:
+  display_name: "Community Group Builder"
+  short_description: "Create and grow your own useful local Facebook group"
+  default_prompt: "Use $community-group-builder to research local community gaps and build a launch kit for my own Facebook group."
