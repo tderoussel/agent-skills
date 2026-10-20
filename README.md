@@ -1,9 +1,8 @@
 # Agent skills
 
-Eighteen skills and four subagents for [Claude Code](https://claude.com/claude-code),
-Codex, and other agents that read `SKILL.md` files. The library includes a nine-skill
-Realtor Starter Pack and nine process skills for research, decisions, development,
-and operations.
+Reusable skills and four subagents for [Claude Code](https://claude.com/claude-code),
+Codex, and other agents that read `SKILL.md` files. The library covers content,
+products, AI workflows, research, real estate, development, and operations.
 
 Skills provide reusable instructions. They use the tools your assistant actually
 has; installing a skill does not connect an account or grant permission to send
@@ -37,6 +36,29 @@ permitted exports you provide. They keep missing information visible and use
 actual responses and outcomes to improve the work. Public engagement and a
 creator's claimed results are not guarantees of leads.
 
+## Content, products, and AI workflows
+
+These skills create practical assets and keep their verification limits visible.
+Use the tools your assistant actually has; an edit plan, test specification, or
+connection proposal is identified separately from a rendered video, executed eval,
+or working integration.
+
+| Skill | What you get | Try asking |
+|---|---|---|
+| [master-prompt-builder](skills/master-prompt-builder/SKILL.md) | A reusable prompt, variable guide, and behavioral test cases | Turn this recurring task into a reusable prompt and test its important boundaries. |
+| [social-performance-coach](skills/social-performance-coach/SKILL.md) | Analytics-based patterns, a focused experiment, and finished content | Review these posts and their metrics, then create the next content experiment. |
+| [digital-product-builder](skills/digital-product-builder/SKILL.md) | A focused product, usable assets, and demand test | Turn my expertise into a practical toolkit and validation plan. |
+| [reference-video-editor](skills/reference-video-editor/SKILL.md) | A reference-derived editing profile, timecoded edit, and verified export when tools allow | Study these references and edit my footage for this destination. |
+| [website-conversion-doctor](skills/website-conversion-doctor/SKILL.md) | Prioritized conversion issues, specific revisions, and a measurement plan | Review this page and create the most useful copy and layout fixes. |
+| [agent-workflow-builder](skills/agent-workflow-builder/SKILL.md) | A bounded workflow with state, recovery, and completion checks | Build a workflow for this repeated process using my available tools. |
+| [ai-evals-architect](skills/ai-evals-architect/SKILL.md) | Cases, grading rules, fair version comparisons, and release evidence | Compare these AI versions and identify important regressions. |
+| [knowledge-capture](skills/knowledge-capture/SKILL.md) | Sourced notes, reusable methods, and candidate skill improvements | Extract the useful method from this transcript and save it in my knowledge base. |
+| [ai-visibility-auditor](skills/ai-visibility-auditor/SKILL.md) | An observed AI-answer baseline and sourced website improvements | Audit how my business appears in AI answers and prioritize fixes. |
+| [brand-foundation-research](skills/brand-foundation-research/SKILL.md) | Research, customer profile, offer brief, buying beliefs, and a claims ledger | Build the brand foundation documents from actual product and customer evidence. |
+
+These are original, portable implementations. They do not include private source
+libraries, third-party course documents, customer records, or account credentials.
+
 ## Install
 
 For an agent performing a requested installation: follow the user's and project's
@@ -63,7 +85,7 @@ also supported when the harness and project instructions use it. These are
 plain skill folders; choose the location your assistant actually discovers.
 
 **Copy whole directories, not just `SKILL.md`.** References, scripts, and UI
-metadata travel with the skill. The complete library contains 18 skill folders.
+metadata travel with the skill. Each skill includes its own instructions and any supporting files.
 Invoking a skill by name can help: “Use cold-call-coach to help me practice.”
 
 ### As a plugin

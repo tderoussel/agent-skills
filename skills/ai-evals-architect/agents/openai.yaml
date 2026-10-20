@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Evals Architect"
+  short_description: "Evaluate AI behavior with calibrated, repeatable tests"
+  default_prompt: "Use $ai-evals-architect to compare these AI system versions with representative cases, calibrated graders, and an evidence-based decision."

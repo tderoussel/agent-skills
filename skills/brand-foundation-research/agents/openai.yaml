@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brand Foundation Research"
+  short_description: "Build sourced positioning and offer foundations"
+  default_prompt: "Use $brand-foundation-research to research my market and build a reusable customer, offer, and proof foundation."

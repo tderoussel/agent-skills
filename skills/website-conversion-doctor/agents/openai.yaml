@@ -1,0 +1,4 @@
+interface:
+  display_name: "Website Conversion Doctor"
+  short_description: "Find conversion leaks and build useful fixes"
+  default_prompt: "Use $website-conversion-doctor to inspect my website's main action path and implement the highest-value repairs in scope."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Workflow Builder"
+  short_description: "Build bounded AI workflows with recovery and proof"
+  default_prompt: "Use $agent-workflow-builder to turn this recurring process into a working workflow with clear tool boundaries, recovery, and verification."

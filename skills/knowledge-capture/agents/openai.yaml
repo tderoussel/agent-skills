@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge Capture"
+  short_description: "Turn selected sources into reusable knowledge"
+  default_prompt: "Use $knowledge-capture to extract a sourced method from this material and save it in my chosen knowledge base."

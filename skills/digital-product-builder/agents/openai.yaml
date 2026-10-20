@@ -1,0 +1,4 @@
+interface:
+  display_name: "Digital Product Builder"
+  short_description: "Build a focused digital product and demand test"
+  default_prompt: "Use $digital-product-builder to turn my expertise and source material into a usable product and validation plan."

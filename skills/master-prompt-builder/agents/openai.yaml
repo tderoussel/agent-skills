@@ -1,0 +1,4 @@
+interface:
+  display_name: "Master Prompt Builder"
+  short_description: "Build reusable prompts with clear inputs and tests"
+  default_prompt: "Use $master-prompt-builder to turn this recurring task into a reusable prompt with inputs, an output contract, and test cases."

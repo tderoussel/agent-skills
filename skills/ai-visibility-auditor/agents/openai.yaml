@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Visibility Auditor"
+  short_description: "Audit AI mentions and improve verified source pages"
+  default_prompt: "Use $ai-visibility-auditor to assess my business and prepare the highest-priority sourced improvements."

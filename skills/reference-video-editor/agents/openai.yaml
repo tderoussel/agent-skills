@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reference Video Editor"
+  short_description: "Edit footage from a clear reference style"
+  default_prompt: "Use $reference-video-editor to study these references and turn my footage into a clear, verified edit."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social Performance Coach"
+  short_description: "Turn social evidence into better content"
+  default_prompt: "Use $social-performance-coach to review my content performance and create the next evidence-backed experiment."

@@ -1,7 +1,7 @@
 {
   "name": "agent-skills",
-  "description": "Eighteen skills and four subagents: a nine-skill Realtor Starter Pack plus process skills for research, decisions, development, verification, and operations.",
-  "version": "1.2.0",
+  "description": "Skills and four subagents for content, digital products, AI workflows, real estate, research, development, and operations.",
+  "version": "1.3.0",
   "author": {
     "name": "Thomas DeRoussel",
     "url": "https://github.com/tderoussel"
@@ -19,6 +19,9 @@
     "workflows",
     "real-estate",
     "lead-generation",
-    "copywriting"
+    "copywriting",
+    "content-strategy",
+    "digital-products",
+    "ai-evaluations"
   ]
 }
